@@ -1,0 +1,39 @@
+---
+title: "HW5 notebook"
+output: html_notebook
+---
+ 
+Here is the first method for overlaying shape data on a raster.
+
+Use the following packages (install them first), then use them via
+the library() call: tmap, tmaptools, rgdal, sp, OpenStreetMap, osmdata
+
+These calls are useful: readOGR(), tmaptools::read_osm(),
+tm_shape(), tm_raster(), tm_dots()
+
+1. readOGR() your shapefile, store it in a var
+2. read_osm() the bbox of #1 above, store it in a var
+3. do tm_shape() on #2 + tm_raster() +
+tm_shape() on #1 + tm_dots() to specify point color and size
+
+```{r}
+
+```
+
+And here's the second.
+
+Use these packages: PBSmapping, ggmap
+And these calls: importShapefile(), as.data.frame(), get_map(), ggmap(), 
+geom_point()
+
+1. importShapefile() into a var
+2. convert it (#1 above) to a dataframe, store it in a var
+3. get_map() with a location that's in your collection of (lat,long),
+store it in a var
+4. do ggmap() on #3, + geom_point() on #2
+
+```{r}
+
+```
+
+
