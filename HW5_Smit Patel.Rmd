@@ -17,7 +17,10 @@ tm_shape(), tm_raster(), tm_dots()
 tm_shape() on #1 + tm_dots() to specify point color and size
 
 ```{r}
-
+library(rgdal)
+ogr <- readOGR(dsn = "mygeodata/placemarks.shp")
+osm <- read_osm(ogr)
+tm_shape(osm) + tm_raster() + tm_shape(ogr) + tm_dots(size = 1, col='red')
 ```
 
 And here's the second.
@@ -33,7 +36,11 @@ store it in a var
 4. do ggmap() on #3, + geom_point() on #2
 
 ```{r}
-
+library(ggmap)
+file<-importShapefile("mygeodata/placemarks")
+df <- data.frame(file)
+map<-get_map(location = c(df['X'][1,],df['Y'][1,]),zoom = 15)
+ggmap(map) + geom_point(data=df, aes(x=X, y=Y), color='red')
 ```
 
 
